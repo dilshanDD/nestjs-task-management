@@ -7,16 +7,18 @@ import { TasksService } from './tasks.service';
 @Controller('tasks')
 export class TasksController {
   constructor(private taskService:TasksService){ }//service injected to the controller
-
-    @Get()
-    getAllTasks() :Task[]{
-      return this.taskService.getAllTasks();
-    }
     
     @Get()
     getTasks(@Query() filterDto : GetTaskFilterDto): Task[]{
-      return
+      if(Object.keys(filterDto).length) {    //find if any fiteres provided in query 
+      return this.taskService.getTasksWithFilters(filterDto);   
+      }
+      else
+      {
+        return this.taskService.getAllTasks();
+      }      
     }
+
     @Get('/:id')
     getTaskById(@Param('id') id: string){
       return this.taskService.getTaskById(id);
