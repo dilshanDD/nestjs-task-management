@@ -24,7 +24,7 @@ async getTasks(filterDto : GetTaskFilterDto):Promise<Task[]>{
 }
 
 async createTask(createTaskDto : CreateTaskDto):Promise<Task>{
-  // same shape of data guratee for us by using createTaskDto (Typescript) without just using parameter value
+  // same shape of data guratee for us by using createTaskDto (Typescript) without just using parameter value(gurateed same shape of data)
   const {title,description} = createTaskDto;
 
   const task = new Task();
