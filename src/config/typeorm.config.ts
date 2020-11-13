@@ -9,5 +9,5 @@ username : 'postgres',
 password : '1',
 database : 'taskmanagement',
 entities : [__dirname + '/../**/*.entity.js'],//one step back(../) any folder(**) any file ending with .entity(*.entity.ts)
-synchronize : true,
+synchronize : false,    
 };

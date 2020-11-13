@@ -13,18 +13,16 @@ export class Task extends BaseEntity {
 
   @Column()
   title : string;
-
+ 
   @Column()
-  description : string;
+  description : string; 
 
   @Column() 
   status : TaskStatus;
 
-  @Column() 
-  userId : number;
-
-  @ManyToOne(type => User,user => user.tasks,{eager : false})
+  @ManyToOne(type => User,user => user.tasks,{eager : false}) 
   user : User;
 
-
-}
+  @Column() 
+  userId : number;
+} 

@@ -21,11 +21,11 @@ export class User extends BaseEntity{
   @OneToMany(type => Task, task => task.user,{ eager : true})
   tasks: Task[];
 //Eager : true means when ever we retrieve user we can access user.tasks immediately and get tasks own by the same user , so one side of the relationship can be eager true
-
+ 
 
   async validatePassword(password : string):Promise<boolean>{ //taking the password from request body
     const hash = await bcrypt.hash(password , this.salt);
     return hash === this.password;
-  }
+  } 
 
 }
